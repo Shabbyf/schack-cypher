@@ -3,6 +3,10 @@ name: Bygg TV-app
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - '.github/workflows/puzzles.yml'
+      - 'tools/fetch_puzzles.py'
+      - 'data/puzzles.json'
   workflow_dispatch:
 
 permissions:
