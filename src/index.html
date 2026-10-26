@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Schack Cypher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+Symbols+2&family=Rubik:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="styles.css?v=__VERSION__">
+<script>if(/[?&]tv=1/.test(location.search))document.documentElement.classList.add('tv');</script>
+</head>
+<body>
+<header class="topbar">
+  <button class="brand" data-go="home" aria-label="Schack Cypher, startsidan">SCHACK <span>CYPHER</span></button>
+  <nav class="tabs" aria-label="Huvudmeny">
+    <button data-go="home">Spela</button>
+    <button data-go="career">Karriär</button>
+    <button data-go="puzzles">Pussel</button>
+    <button data-go="training">Träning</button>
+    <button data-go="history">Partier</button>
+    <button data-go="settings">Inställningar</button>
+  </nav>
+  <div class="me">
+    <span class="chip" id="chipRating" title="Din rating mot botarna">♟ 1000</span>
+    <span class="chip" id="chipPuzzle" title="Din pusselrating">✦ 1200</span>
+    <button class="chip" id="engChip" data-go="settings#motor">Laddar Stockfish…</button>
+  </div>
+</header>
+<div class="banner" id="banner" hidden></div>
+
+<main id="page" class="page" tabindex="-1"></main>
+
+<section id="boardView" class="bv" hidden>
+  <div class="bv-eval" title="Ställningsvärdering"><div class="ev-fill" id="evFill"></div><span id="evNum">0.0</span></div>
+  <div class="bv-center">
+    <div class="strip" id="stripTop"></div>
+    <div id="board"></div>
+    <div class="strip" id="stripBottom"></div>
+    <div class="status" id="status" aria-live="polite"></div>
+  </div>
+  <aside class="bv-side" id="side"></aside>
+</section>
+
+<div class="modal" id="modal" hidden><div class="modal-card" role="dialog" aria-modal="true"></div></div>
+<div class="toast" id="toast" role="status" hidden></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+<script src="app.js?v=__VERSION__"></script>
+</body>
+</html>

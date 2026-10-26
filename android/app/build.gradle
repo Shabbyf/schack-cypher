@@ -13,7 +13,7 @@ android {
         minSdk 24
         targetSdk 34
         versionCode buildNumber
-        versionName "1.0.${buildNumber}"
+        versionName "1.1.${buildNumber}"
     }
 
     // Fast nyckel i repot, så att nya versioner kan installeras ovanpå gamla.
@@ -53,4 +53,5 @@ android {
 
 dependencies {
     implementation 'androidx.webkit:webkit:1.11.0'
+    implementation 'androidx.core:core:1.13.1'
 }

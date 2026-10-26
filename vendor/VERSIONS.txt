@@ -1,0 +1,5 @@
+chessops 736c40c   "version": "0.15.1",
+@badrap/result 015d43e
+qrcodegen 3c6d0b3
+stockfish.js 17.1 lite single-threaded
+(chessops: importen av @badrap/result pekar om till ../result/index)

@@ -33,9 +33,14 @@ jobs:
         with:
           gradle-version: '8.9'
 
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
       - name: Bygg webbappen
         run: |
-          python3 tools/make_www.py
+          npm install --no-audit --no-fund
+          node tools/build.mjs 1.1.${{ github.run_number }}
           rm -rf android/app/src/main/assets/www
           mkdir -p android/app/src/main/assets
           cp -r www android/app/src/main/assets/www
@@ -52,10 +57,12 @@ jobs:
       - name: Publicera release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v1.0.${{ github.run_number }}
-          name: Schack Cypher 1.0.${{ github.run_number }}
+          tag_name: v1.1.${{ github.run_number }}
+          name: Schack Cypher 1.1.${{ github.run_number }}
           body: |
-            Installera på TV-boxen med appen Downloader och länken
+            ${{ github.event.head_commit.message }}
+
+            Appen hittar uppdateringen själv. Första gången: installera med appen Downloader och länken
             https://github.com/${{ github.repository }}/releases/latest/download/schack-cypher.apk
           files: schack-cypher.apk
           make_latest: true
